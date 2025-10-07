@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padaria Florencio - Fresquinho Todo Dia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1608190003443-6165c0a46a9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .cart-item {
+            transition: all 0.3s ease;
+        }
+        
+        .cart-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(94, 220, 123, 0.1)7, 0.1);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Cabeçalho/Barra de navegação -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-bread-slice text-amber-600 text-2xl mr-2"></i>
+                <h1 class="text-xl font-bold text-gray-800">Padaria Florencio</h1>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#inicio" class="text-gray-700 hover:text-amber-600 font-medium">Início</a>
+                <a href="#produtos" class="text-gray-700 hover:text-amber-600 font-medium">Produtos</a>
+                <a href="#sobre" class="text-gray-700 hover:text-amber-600 font-medium">Sobre Nós</a>
+                <a href="#contato" class="text-gray-700 hover:text-amber-600 font-medium">Contato</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <button id="cart-button" class="relative">
+                    <i class="fas fa-shopping-cart text-gray-700 text-xl hover:text-amber-600"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-amber-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </button>
+                
+                <button class="md:hidden" id="mobile-menu-button">
+                    <i class="fas fa-bars text-gray-700 text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#inicio" class="text-gray-700 hover:text-amber-600 font-medium py-2">Início</a>
+                <a href="#produtos" class="text-gray-700 hover:text-amber-600 font-medium py-2">Produtos</a>
+                <a href="#sobre" class="text-gray-700 hover:text-amber-600 font-medium py-2">Sobre Nós</a>
+                <a href="#contato" class="text-gray-700 hover:text-amber-600 font-medium py-2">Contato</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-bg bg-gray-800 bg-blend-overlay bg-opacity-70 text-white py-20">
+        <div class="container mx-auto px-4 flex flex-col items-start">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Fresquinho direto do forno</h2>
+            <p class="text-xl mb-8 max-w-2xl">Desde 2025 levando qualidade e sabor para sua mesa. Tudo feito com ingredientes selecionados e muito carinho.</p>
+            <a href="#produtos" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Conheça nossos produtos</a>
+        </div>
+    </section>
+
+    <!-- Produtos seção -->
+  
+    <section id="produtos" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Nossos Produtos</h2>
+              <!-- Produto 9 - Pretzel -->
+         <div class="product-card ...">...</div>
+
+           <!-- Produto 10 - Carolina -->
+         <div class="product-card ...">...</div>
+          </div>
+
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Produto 1 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://guiadacozinha.com.br/wp-content/uploads/2018/10/paofrancesfolhado.jpg" alt="Pão Francês" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Pão Francês</h3>
+                        <p class="text-gray-600 mb-4">Crocante por fora e macio por dentro, nosso tradicional pão francês. 1 Unidade.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-600 font-bold text-lg">R$ 0,80</span>
+                            <button onclick="addToCart('Pão Francês', 0.80, 'https://guiadacozinha.com.br/wp-content/uploads/2018/10/paofrancesfolhado.jpg')" class="bg-amber-600 hover:bg-amber-700 text-white py-2 px-4 rounded-lg transition duration-300">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produto 2 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://cdn.casaeculinaria.com/wp-content/uploads/2022/10/04101905/Bolo-de-chocolate-2-1024x683.webp" alt="Bolo de Chocolate" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Bolo de Chocolate</h3>
+                        <p class="text-gray-600 mb-4">Feito com chocolate nobre e muito carinho. Pedaço de 300g.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-600 font-bold text-lg">R$ 3,90</span>
+                            <button onclick="addToCart('Bolo de Chocolate', 3.90, 'https://cdn.casaeculinaria.com/wp-content/uploads/2022/10/04101905/Bolo-de-chocolate-2-1024x683.webp')" class="bg-amber-600 hover:bg-amber-700 text-white py-2 px-4 rounded-lg transition duration-300">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produto 3 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1612203985729-70726954388c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Croissant" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Croissant</h3>
+                        <p class="text-gray-600 mb-4">Folhado e crocante, perfeito para acompanhar seu café. 1 Unidade.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-600 font-bold text-lg">R$ 6,50</span>
+                            <button onclick="addToCart('Croissant', 6.50, 'https://images.unsplash.com/photo-1612203985729-70726954388c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80')" class="bg-amber-600 hover:bg-amber-700 text-white py-2 px-4 rounded-lg transition duration-300">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produto 4 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://sabores-new.s3.amazonaws.com/public/2024/11/torta-de-frango-3-1024x494.webp" alt="Torta de Frango" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Torta de Frango</h3>
+                        <p class="text-gray-600 mb-4">Massa folhada com recheio cremoso de frango. Pedaço de 500g.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-600 font-bold text-lg">R$ 7,00</span>
+                            <button onclick="addToCart('Torta de Frango', 7.00, 'https://sabores-new.s3.amazonaws.com/public/2024/11/torta-de-frango-3-1024x494.webp')" class="bg-amber-600 hover:bg-amber-700 text-white py-2 px-4 rounded-lg transition duration-300">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produto 5 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="data:image/jpeg;base64,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" alt="Pão de Queijo" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Pão de Queijo</h3>
+                        <p class="text-gray-600 mb-4">Tradicional mineiro, feito com queijo nobre. 10 Unidades.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-600 font-bold text-lg">R$ 12,00</span>
+                            <button onclick="addToCart('Pão de Queijo', 12.00, 'data:image/jpeg;base64,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')" class="bg-amber-600 hover:bg-amber-700 text-white py-2 px-4 rounded-lg transition duration-300">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://www.mavalerio.com.br/wp-content/uploads/2018/12/170518_pani-046-500x340.png" alt="Sonho" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Sonho</h3>
+                        <p class="text-gray-600 mb-4">Massa fofinha com recheio de creme ou doce de leite. 1 Unidade.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-600 font-bold text-lg">R$ 5,50</span>
+                            <button onclick="addToCart('Sonho', 5.50, 'https://www.mavalerio.com.br/wp-content/uploads/2018/12/170518_pani-046-500x340.png')" class="bg-amber-600 hover:bg-amber-700 text-white py-2 px-4 rounded-lg transition duration-300">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produto 7 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://www.padariapampulha.com.br/wp-content/uploads/2023/10/pp-fev-2021-18-300x300.jpg" alt="Baguete" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Baguete</h3>
+                        <p class="text-gray-600 mb-4">Pão francês no estilo italiano, crocante e saboroso. 1 Unidade.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-600 font-bold text-lg">R$ 8,00</span>
+                            <button onclick="addToCart('Baguete', 8.00, 'https://www.padariapampulha.com.br/wp-content/uploads/2023/10/pp-fev-2021-18-300x300.jpg')" class="bg-amber-600 hover:bg-amber-700 text-white py-2 px-4 rounded-lg transition duration-300">
+                                Adicionar
+                            </button>
+                          </div>
+                     </div>
+                </div>
+                 <!-- Produto 8 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://www.receitasnestle.com.br/sites/default/files/srh_recipes/966088d6e1b0bb64e28f542afb8e8aa4.jpg" alt="Pretzel" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Pretzel</h3>
+                        <p class="text-gray-600 mb-4">Crocante por fora e macio por dentro, nosso tradicional pretzel. 1 Unidade.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-600 font-bold text-lg">R$ 5,80</span>
+                            <button onclick="addToCart('Pretzel', 5.80, 'https://https://www.receitasnestle.com.br/sites/default/files/srh_recipes/966088d6e1b0bb64e28f542afb8e8aa4.jpg')" class="bg-amber-600 hover:bg-amber-700 text-white py-2 px-4 rounded-lg transition duration-300">
+                               Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+        <!-- Produto 9 -->
+        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+            <img src="https://guiadacozinha.com.br/wp-content/uploads/2011/01/Carolina-recheada-com-doce-de-leite.jpg" alt="Carolina" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-700 mb-2">Carolina</h3>
+                <p class="text-gray-500 mb-4">Uma massa fofa recheada por dentro com corpetura de chocolate. 1 Unidade.</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-amber-500 font-bold text-lg">R$ 2,80</span>
+                    <button onclick="addToCart('Pretzel', 2.80, 'https://https://www.receitasnestle.com.br/sites/default/files/srh_recipes/966088d6e1b0bb64e28f542afb8e8aa4.jpg')" class="bg-amber-600 hover:bg-amber-700 text-white py-2 px-4 rounded-lg transition duration-300">
+                        Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produto 10 -->
+        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+            <img src="https://static.itdg.com.br/images/640-440/b9f016f4163418359cabb6b578a7dc04/349247-original.jpg" alt="Croissant" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-700 mb-2">Croissant</h3>
+                <p class="text-gray-500 mb-4">Uma massa folhada amantigada. 1 Unidade.</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-amber-500 font-bold text-lg">R$ 4,00</span>
+                    <button onclick="addToCart('Croissant', 4.00, 'https://https://static.itdg.com.br/images/640-440/b9f016f4163418359cabb6b578a7dc04/349247-original.jpg')" class="bg-amber-600 hover:bg-amber-700 text-white py-2 px-4 rounded-lg transition duration-300">
+                        Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+                <!-- Produto 11 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2020/05/22/empada-aberta-massa-pao-queijo.jpg" alt="Empada" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Empada</h3>
+                        <p class="text-gray-600 mb-4">Massa crocante com recheio de frango ou palmito. 1 Unidade.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-600 font-bold text-lg">R$ 4,50</span>
+                            <button onclick="addToCart('Empada', 4.50, 'https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2020/05/22/empada-aberta-massa-pao-queijo.jpg')" class="bg-amber-600 hover:bg-amber-700 text-white py-2 px-4 rounded-lg transition duration-300">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Sobre a seção -->
+    <section id="sobre" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/34/d2/91/balcao-dos-doces-bolos.jpg?w=600&h=-1&s=1" alt="Padaria Delícia" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">Nossa História</h2>
+                    <p class="text-gray-600 mb-4">Fundada em 2025 pelo mestre padeiro Vinicius Florencio a Padaria Florencio começou como uma pequena loja de bairro e hoje é referência em qualidade e tradição.</p>
+                    <p class="text-gray-600 mb-4">Mantemos os métodos artesanais de produção, utilizando ingredientes selecionados e receitas que passam de geração em geração.</p>
+                    <p class="text-gray-600 mb-6">Nosso compromisso é levar até você o verdadeiro sabor da padaria tradicional, com todo o carinho e dedicação que só quem ama o que faz pode oferecer.</p>
+                    <div class="flex space-x-4">
+                        <div class="bg-amber-100 p-4 rounded-lg text-center flex-1">
+                            <i class="fas fa-award text-amber-600 text-2xl mb-2"></i>
+                            <h4 class="font-semibold text-gray-800">Qualidade</h4>
+                            <p class="text-sm text-gray-600">Ingredientes selecionados</p>
+                        </div>
+                        <div class="bg-amber-100 p-4 rounded-lg text-center flex-1">
+                            <i class="fas fa-heart text-amber-600 text-2xl mb-2"></i>
+                            <h4 class="font-semibold text-gray-800">Tradição</h4>
+                            <p class="text-sm text-gray-600">Receitas de família</p>
+                        </div>
+                        <div class="bg-amber-100 p-4 rounded-lg text-center flex-1">
+                            <i class="fas fa-bread-slice text-amber-600 text-2xl mb-2"></i>
+                            <h4 class="font-semibold text-gray-800">Frescor</h4>
+                            <p class="text-sm text-gray-600">Fresquinho todo dia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de contato -->
+    <section id="contato" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Entre em Contato</h2>
+            
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2 bg-gray-50 p-8 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Informações de Contato</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-amber-600 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Endereço</h4>
+                                <p class="text-gray-600">Rua Reunidas, 36, São Paulo/SP</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-phone-alt text-amber-600 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Telefone</h4>
+                                <p class="text-gray-600">(11) 9 7633-6734</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope text-amber-600 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Email</h4>
+                                <p class="text-gray-600">contato@padariaflorencio.com.br</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-clock text-amber-600 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Horário de Funcionamento</h4>
+                                <p class="text-gray-600">Segunda a Sábado: 6h às 20h<br>Domingo: 6h às 14h</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-medium text-gray-800 mb-3">Siga-nos</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-gray-200 hover:bg-amber-600 hover:text-white text-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="bg-gray-200 hover:bg-amber-600 hover:text-white text-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="bg-gray-200 hover:bg-amber-600 hover:text-white text-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 bg-gray-50 p-8 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Envie uma Mensagem</h3>
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-1">Nome</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-transparent" required>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-1">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-transparent" required>
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-gray-700 mb-1">Telefone</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-1">Mensagem</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-transparent" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="bg-amber-600 hover:bg-amber-700 text-white font-medium py-3 px-6 rounded-lg transition duration-300 w-full">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- modelo do carrinho -->
+    <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-md max-h-[90vh] overflow-hidden animate-fade-in">
+            <div class="flex justify-between items-center border-b p-4">
+                <h3 class="text-xl font-bold text-gray-800">Seu Carrinho</h3>
+                <button id="close-cart" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div id="cart-items" class="p-4 overflow-y-auto max-h-[60vh]">
+                <!-- Os itens do carrinho serão adicionados aqui dinamicamente -->
+                <p id="empty-cart-message" class="text-gray-500 text-center py-8">Seu carrinho está vazio</p>
+            </div>
+            
+            <div class="border-t p-4">
+                <div class="flex justify-between mb-4">
+                    <span class="font-semibold text-gray-700">Total:</span>
+                    <span id="cart-total" class="font-bold text-gray-800">R$ 0,00</span>
+                </div>
+                
+                <button id="checkout-button" class="bg-amber-600 hover:bg-amber-700 text-white font-medium py-3 px-6 rounded-lg transition duration-300 w-full disabled:opacity-50" disabled>
+                    Finalizar Compra
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmação do pedido Modelo -->
+    <div id="order-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-md p-6 animate-fade-in text-center">
+            <div class="text-green-500 text-5xl mb-4">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">Pedido Confirmado!</h3>
+            <p class="text-gray-600 mb-6">Seu pedido foi recebido com sucesso. Em breve entraremos em contato para confirmar.</p>
+            <button id="close-order-modal" class="bg-amber-600 hover:bg-amber-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300">
+                Fechar
+            </button>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center">
+                        <i class="fas fa-bread-slice text-amber-400 text-2xl mr-2"></i>
+                        <h2 class="text-xl font-bold">Padaria Florencio</h2>
+                    </div>
+                    <p class="text-gray-400 mt-2">Fresquinho todo dia desde 2025</p>
+                </div>
+                
+                <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8">
+                    <div>
+                        <h4 class="font-semibold mb-2">Links</h4>
+                        <ul class="space-y-1">
+                            <li><a href="#inicio" class="text-gray-400 hover:text-amber-400 transition duration-300">Início</a></li>
+                            <li><a href="#produtos" class="text-gray-400 hover:text-amber-400 transition duration-300">Produtos</a></li>
+                            <li><a href="#sobre" class="text-gray-400 hover:text-amber-400 transition duration-300">Sobre Nós</a></li>
+                            <li><a href="#contato" class="text-gray-400 hover:text-amber-400 transition duration-300">Contato</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold mb-2">Contato</h4>
+                        <ul class="space-y-1">
+                            <li class="text-gray-400">Rua das Padarias, 123</li>
+                            <li class="text-gray-400">(11) 9 7633-6734</li>
+                            <li class="text-gray-400">contato@padariaflorencio.com.br</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+                <p>&copy; 2025 Padaria Florencio Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu alternar
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Carrinho funções
+        let cart = [];
+        
+        //Alternar modelo do carrinho
+        document.getElementById('cart-button').addEventListener('click', function() {
+            document.getElementById('cart-modal').classList.remove('hidden');
+            updateCartDisplay();
+        });
+        
+        document.getElementById('close-cart').addEventListener('click', function() {
+            document.getElementById('cart-modal').classList.add('hidden');
+        });
+        
+        // Fechar modelo ao clicar fora
+        document.querySelectorAll('#cart-modal, #order-modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Add to carrinho função
+        function addToCart(name, price, image) {
+            // Verifique se o item já existe no carrinho
+            const existingItem = cart.find(item => item.name === name);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    name: name,
+                    price: price,
+                    image: image,
+                    quantity: 1
+                });
+            }
+            
+            // Atualizar contagem de carrinho
+            updateCartCount();
+            
+            // Show feedback
+            showAddToCartFeedback(name);
+        }
+        
+        // Atualizar contagem de carrinho na barra de navegação
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            document.getElementById('cart-count').textContent = count;
+            
+            // Ativar/desativar botão de checkout
+            document.getElementById('checkout-button').disabled = count === 0;
+        }
+        
+        // Atualizar exibição do carrinho no modal
+        function updateCartDisplay() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const emptyCartMessage = document.getElementById('empty-cart-message');
+            
+            if (cart.length === 0) {
+                emptyCartMessage.classList.remove('hidden');
+                cartItemsContainer.innerHTML = '';
+            } else {
+                emptyCartMessage.classList.add('hidden');
+                
+                let html = '';
+                let total = 0;
+                
+                cart.forEach((item, index) => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    
+                    html += `
+                        <div class="cart-item bg-gray-50 rounded-lg p-3 mb-3 flex items-center">
+                            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-md mr-3">
+                            <div class="flex-1">
+                                <h4 class="font-medium text-gray-800">${item.name}</h4>
+                                <div class="flex justify-between items-center mt-1">
+                                    <span class="text-amber-600 font-medium">R$ ${item.price.toFixed(2)}</span>
+                                    <div class="flex items-center">
+                                        <button onclick="updateQuantity(${index}, -1)" class="bg-gray-200 text-gray-700 w-6 h-6 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-minus text-xs"></i>
+                                        </button>
+                                        <span class="mx-2 text-gray-700">${item.quantity}</span>
+                                        <button onclick="updateQuantity(${index}, 1)" class="bg-gray-200 text-gray-700 w-6 h-6 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-plus text-xs"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center mt-2">
+                                    <span class="text-sm text-gray-500">Subtotal: R$ ${itemTotal.toFixed(2)}</span>
+                                    <button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-700 text-sm">
+                                        <i class="fas fa-trash-alt"></i> Remover
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                cartItemsContainer.innerHTML = html;
+                document.getElementById('cart-total').textContent = `R$ ${total.toFixed(2)}`;
+            }
+        }
+        
+        // Atualizar quantidade de itens
+        function updateQuantity(index, change) {
+            cart[index].quantity += change;
+            
+            // Remover item se a quantidade chegar a 0
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            
+            updateCartCount();
+            updateCartDisplay();
+        }
+        
+        // Remove item from do carrinho
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartCount();
+            updateCartDisplay();
+        }
+        
+        // Show feedback ao adicionar ao carrinho
+        function showAddToCartFeedback(name) {
+            const feedback = document.createElement('div');
+            feedback.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg animate-fade-in';
+            feedback.innerHTML = `<i class="fas fa-check-circle mr-2"></i> ${name} adicionado ao carrinho!`;
+            
+            document.body.appendChild(feedback);
+            
+            setTimeout(() => {
+                feedback.classList.add('opacity-0', 'transition-opacity', 'duration-300');
+                setTimeout(() => feedback.remove(), 300);
+            }, 2000);
+        }
+        
+        // Checkout button
+        document.getElementById('checkout-button').addEventListener('click', function() {
+            // Em um aplicativo real, isso enviaria o pedido para um servidor
+            document.getElementById('cart-modal').classList.add('hidden');
+            
+            // Show confirmação do pedido
+            setTimeout(() => {
+                document.getElementById('order-modal').classList.remove('hidden');
+            }, 300);
+            
+            // Limpar carrinho
+            cart = [];
+            updateCartCount();
+        });
+        
+        // Fechar modelo de pedido
+        document.getElementById('close-order-modal').addEventListener('click', function() {
+            document.getElementById('order-modal').classList.add('hidden');
+        });
+        
+        // Envio do formulário de contato
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Em um aplicativo real, isso enviaria os dados do formulário para um servidor
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            this.reset();
+        });
+        
+        // Rolagem suave para links de âncora
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Feche o menu se estiver aberto
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
